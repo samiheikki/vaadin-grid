@@ -13,7 +13,7 @@ module.exports = {
     ];
 
     const saucelabsPlatformsDesktop = [
-      'macOS 10.12/safari@10.0'
+      'macOS 10.12/safari@11.0'
     ];
 
     const cronPlatforms = [
@@ -28,7 +28,7 @@ module.exports = {
       context.options.plugins.sauce.browsers = saucelabsPlatformsPolyfilled;
 
     } else if (argv.env === 'saucelabs:desktop') {
-      context.options.plugins.sauce.browsers = saucelabsPlatformsDesktop.concat(cronPlatforms);
+      context.options.plugins.sauce.browsers = saucelabsPlatformsDesktop;
 
     } else if (argv.env === 'saucelabs') {
       context.options.plugins.sauce.browsers = cronPlatforms.concat(saucelabsPlatformsDesktop)
@@ -39,7 +39,7 @@ module.exports = {
 
     // Add coverage for local tests only
     } else {
-      context.options.plugins.istanbul = {
+      /* context.options.plugins.istanbul = {
         'dir': './coverage',
         'reporters': ['text-summary', 'lcov'],
         'include': [
@@ -68,7 +68,7 @@ module.exports = {
           '/vaadin-grid.html'
         ],
         'exclude': []
-      };
+      };*/
     }
   },
 
